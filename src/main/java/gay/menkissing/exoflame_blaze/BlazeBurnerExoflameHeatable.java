@@ -3,7 +3,6 @@ package gay.menkissing.exoflame_blaze;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity.FuelType;
 import gay.menkissing.exoflame_blaze.config.ExoflameBlazeConfig;
-import gay.menkissing.exoflame_blaze.config.ExoflameBlazeConfigForge;
 import gay.menkissing.exoflame_blaze.mixin.BlazeBurnerBlockEntityAccessor;
 import vazkii.botania.api.block.ExoflameHeatable;
 
