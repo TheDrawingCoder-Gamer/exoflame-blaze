@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vazkii.botania.api.BotaniaFabricCapabilities;
 
+import java.util.Optional;
+
 public class ExoflameBlaze implements ModInitializer {
 
     public static Logger LOGGER = LoggerFactory.getLogger("exoflame-blaze");
@@ -23,17 +25,28 @@ public class ExoflameBlaze implements ModInitializer {
             ExoflameBlazeConfigForge.registerCommonConfig();
         }
 
+
         ResourceLocation blazeburnerid = new ResourceLocation("create", "blaze_heater");
-        RegistryEntryAddedCallback.event(BuiltInRegistries.BLOCK_ENTITY_TYPE).register((rawId, id, object) -> {
-           if (id.equals(blazeburnerid)) {
-                LOGGER.info("Found blaze burner!");
-               BotaniaFabricCapabilities.EXOFLAME_HEATABLE.registerForBlockEntity(
-                       ((blockEntity, unit) -> new BlazeBurnerExoflameHeatable(blockEntity)),
-                       (BlockEntityType<BlazeBurnerBlockEntity>)object
-               );
-           }
-        });
 
+        Optional<BlockEntityType<?>> be = BuiltInRegistries.BLOCK_ENTITY_TYPE.getOptional(blazeburnerid);
 
+        if (be.isPresent()) {
+            registerLookup((BlockEntityType<BlazeBurnerBlockEntity>) be.get());
+        } else {
+            RegistryEntryAddedCallback.event(BuiltInRegistries.BLOCK_ENTITY_TYPE).register((rawId, id, object) -> {
+                if (id.equals(blazeburnerid)) {
+                    registerLookup((BlockEntityType<BlazeBurnerBlockEntity>) object);
+                }
+            });
+        }
+
+    }
+
+    public void registerLookup(BlockEntityType<BlazeBurnerBlockEntity> be) {
+        LOGGER.info("Found blaze burner!");
+        BotaniaFabricCapabilities.EXOFLAME_HEATABLE.registerForBlockEntity(
+                ((blockEntity, unit) -> new BlazeBurnerExoflameHeatable(blockEntity)),
+                be
+        );
     }
 }
