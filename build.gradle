@@ -37,6 +37,15 @@ repositories {
     }
 
     maven { url = "https://api.modrinth.com/maven" }
+
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
 }
 
 dependencies {
@@ -51,6 +60,12 @@ dependencies {
     modImplementation("com.simibubi.create:create-fabric-$minecraft_version:$create_version")
 
     modImplementation("vazkii.botania:Botania:$botania_version")
+
+    modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:$forgeconfigapiport_version"
+
+    modLocalRuntime "maven.modrinth:forge-config-screens:v$forgeconfigapiport_version-1.20.1-Fabric"
+
+    modLocalRuntime("com.terraformersmc:modmenu:$modmenu_version")
 }
 
 processResources {
@@ -59,6 +74,7 @@ processResources {
     inputs.property "loader_version", project.loader_version
     inputs.property "create_version", project.create_version
     inputs.property "botania_version", project.botania_version
+    inputs.property "forgeconfigapiport_version", project.forgeconfigapiport_version
 
     filteringCharset "UTF-8"
 
@@ -67,7 +83,8 @@ processResources {
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version,
                 "create_version": project.create_version,
-                "botania_version": project.botania_version
+                "botania_version": project.botania_version,
+                "forgeconfigapiport_version": project.forgeconfigapiport_version
     }
 }
 

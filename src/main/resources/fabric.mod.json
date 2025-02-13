@@ -22,6 +22,7 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "create": "${create_version}",
-    "botania": "${botania_version}"
+    "botania": "${botania_version}",
+    "forgeconfigapiport":"${forgeconfigapiport_version}"
   }
 }

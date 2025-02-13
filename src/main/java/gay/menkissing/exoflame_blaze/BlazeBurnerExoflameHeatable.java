@@ -2,12 +2,13 @@ package gay.menkissing.exoflame_blaze;
 
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity.FuelType;
+import gay.menkissing.exoflame_blaze.config.ExoflameBlazeConfig;
 import gay.menkissing.exoflame_blaze.mixin.BlazeBurnerBlockEntityAccessor;
 import vazkii.botania.api.block.ExoflameHeatable;
 
 public class BlazeBurnerExoflameHeatable  implements ExoflameHeatable {
-    public static int BOOST_RATE = 9;
-    public static int SEETHING_BOOST_RATE = 1;
+    public static int BOOST_RATE = ExoflameBlazeConfig.EXOFLAME_BOOST_RATE.get();
+    public static int SEETHING_BOOST_RATE = ExoflameBlazeConfig.EXOFLAME_SEETHING_BOOST_RATE.get();
 
     private final BlazeBurnerBlockEntity burner;
 
