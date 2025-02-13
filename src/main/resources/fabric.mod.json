@@ -21,10 +21,10 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "create": "${create_version}",
-    "botania": "${botania_version}"
+    "create": "~${create_version}",
+    "botania": ">=${botania_version}"
   },
   "suggests": {
-    "forgeconfigapiport":"${forgeconfigapiport_version}"
+    "forgeconfigapiport":">=${forgeconfigapiport_version}"
   }
 }
