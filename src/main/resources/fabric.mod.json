@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "exoflame-blaze",
   "version": "${version}",
-  "name": "exoflame-blaze",
-  "description": "",
+  "name": "Exoflame Blaze Burners",
+  "description": "make da exoflame touch dem blaze burners",
   "authors": [],
   "contact": {},
   "license": "MIT",
@@ -22,7 +22,9 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "create": "${create_version}",
-    "botania": "${botania_version}",
+    "botania": "${botania_version}"
+  },
+  "suggests": {
     "forgeconfigapiport":"${forgeconfigapiport_version}"
   }
 }
